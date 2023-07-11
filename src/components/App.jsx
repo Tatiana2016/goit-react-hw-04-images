@@ -26,7 +26,7 @@ const App = () => {
         );
         const data = await response.json();
 
-        setImages(prevImages => [...prevImages, ...data.hits]);
+        setImages((prevImages) => [...prevImages, ...data.hits]);
       } catch (error) {
         console.error('Error fetching images:', error);
       } finally {
@@ -37,17 +37,17 @@ const App = () => {
     fetchImages();
   }, [searchQuery, page]);
 
-  const handleSearch = query => {
+  const handleSearch = (query) => {
     setSearchQuery(query);
     setPage(1);
     setImages([]);
   };
 
   const handleLoadMore = () => {
-    setPage(prevPage => prevPage + 1);
+    setPage((prevPage) => prevPage + 1);
   };
 
-  const handleImageClick = image => {
+  const handleImageClick = (image) => {
     setSelectedImage(image);
   };
 
